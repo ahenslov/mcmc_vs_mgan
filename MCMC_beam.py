@@ -146,22 +146,6 @@ for i in range(31):
 parameters = [link.parameters for link in my_chains['chain_0'][burnin+1:] + my_chains['chain_1'][burnin+1:]]
 
 
-# plotting posterior vs prior (both are logE's) 
-"""
-for i in range(31):
-    pri = prior_samples[:,i]
-    post = np.array([param[i] for param in parameters])
-    ax = sns.kdeplot(pri)
-    sns.kdeplot(post, ax=ax)
-    ax.axvline(log_E_true[i], color='k', linewidth=.5, linestyle='--', alpha=.5)
-    plt.title(f'Posterior vs. Prior for x{i}')
-    plt.legend(['Prior', 'Posterior', 'True'])
-    plt.savefig(f'MCMC_posterior_vs_prior/{dataset}_mcmc_posterior_vs_prior_{i}.pdf')
-    #plt.show()
-    plt.close()
-    """
-
-
 # plot some posterior draws of the model input and output.
 n_samples = 1000
 ids = np.random.randint(0, len(parameters), n_samples)
